@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #fml{
+        background-color: red;
+      }
+    </style>
+    <meta charset = "utf-8" />
+    <title>Lab 2 Javascript</title>
+    <script type = "text/javascript">
+
+    var button;
+    var msg;
+
+    function start(){
+      button = document.getElementById("submitButton");
+      button.addEventListener("click", buttonClicked);
+      msg = document.getElementById("msg");
+      msg.addEventListener("keypress", checkMessage);
+    }
+
+    function fname(){
+      response.innerHTML = "";
+      var first = document.getElementById("fname").value;
+      var div = document.getElementById("fml1");
+      if(first === '' || first == null){
+        document.getElementById("fml1").innerText = "Forgot to input your first name.\n";
+        return false;
+      }else if(! /^[a-zA-Z]+$/.test(first)){
+        document.getElementById("fml1").innerText = "First name can only contain letters.\n";
+        return false;
+      }else if(! /^[A-Z][a-z]+$/.test(first)){
+        document.getElementById("fml1").innerText = "First name should have the first letter capitalized.\n";
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function lname(){
+      response.innerHTML = "";
+      var last = document.getElementById("lname").value;
+      var div = document.getElementById("fml2");
+      if(last === '' || last == null){
+        document.getElementById("fml2").innerText = "Forgot to input your last name.\n";
+        return false;
+      }else if(! /^[a-zA-Z]+$/.test(last)){
+        document.getElementById("fml2").innerText = "Last name can only contain letters.\n";
+        return false;
+      }else if(! /^[A-Z][a-z]+$/.test(last)){
+        document.getElementById("fml2").innerText = "Last name should have the first letter capitalized.\n";
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function studentID(){
+      response.innerHTML = "";
+      var student = document.getElementById("sid").value;
+      if(student === "" || student == null){
+        document.getElementById("fml3").innerText ="Forgot to enter your studentID.\n";
+        return false;
+      }else if(isNaN(student)){
+        document.getElementById("fml3").innerText = "Please enter only Numbers\n";
+        return false;
+      }else if(student.length > 9){
+        document.getElementById("fml3").innerText = "Please enter a id with no more then 9 numbers.\n";
+        return false;
+      }else if (student.length != 9){
+        document.getElementById("fml3").innerText = "Student ID should be 9 numbers.\n";
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function checkMessage() {
+      response.innerHTML = "";
+      var content = msg.value;
+      var contentTokens = content.split( /[\s\n]+/);
+      if(contentTokens.length>= 25){
+        document.getElementById("fml4").innerText = contentTokens.length + " is max.\n"
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function isValid(){
+      var valid = true;
+      valid &= fname();
+      valid &= lname();
+      valid &= studentID();
+      valid &= checkMessage();
+      return valid? true:false;
+    }
+
+    function buttonClicked(){
+      var lab2 = isValid();
+      response.innerHTML = "";
+      if(lab2 == true){
+        response.innerHTML = "Success";
+      }else if(lab2 == false){
+        response.innerHTML = "Failure";
+      }else{
+        alert("Yeah something broke");
+      }
+    }
+
+    window.addEventListener("load",start);
+    </script>
+  </head>
+  <body>
+
+    <form method="post" action="#">
+      First Name: <input type="text" name="firstname" id="fname" /><br />
+      Last Name: <input type="text" name="lastname" id="lname"  /><br  />
+      StudentID: <input type="text" name="studentID" id="sid"  /><br  />
+      Message: <textarea rows="5" name="message" cols="30" wrap="hard" id="msg">
+			</textarea>
+      <input type="button" value="Submit" id="submitButton" />
+      <div id="fml">
+        <p1 id = "fml1"></p1>
+        <p2 id = "fml2"></p2>
+        <p3 id = "fml3"></p3>
+        <p4 id = "fml4"></p4>
+      </div>
+    </form>
+
+    <h1 id="response"></h1>
+
+  </body>
+</html>
