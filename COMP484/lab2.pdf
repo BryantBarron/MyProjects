@@ -1,0 +1,69 @@
+This assignment is to be worked on INDIVIDUALLY ! No team submissions allowed.
+Purpose: You are going to learn basic form validation and event handling in JavaScript.
+Requirements: To complete this project you will write and submit one HTML file containing
+embedded CSS and JavaScript. The file will be called lab2.html. This file contains a
+registration form, which can be styled any way you like subject to the requirements below.
+This file must be an ASCII file (i.e. a plain text document with a .html extension). You may
+create it with any editor but you must ensure that it is a text file. In other words, it should not
+contain anything except ASCII characters (including HTML tags/CSS rules/JavaScript and
+content).
+YOU MAY USE A WYSIWYG EDITOR! This editor can be used to generate the HTML markup
+of your document. Any CSS or JavaScript must be subsequently added to this file by hand (i.e.
+manually editing the HTML file).
+This lab will be a simple registration form. Every visible form input should be labeled with
+explanatory text. The form should have the following inputs:
+• First and last name (2 separate text fields)
+o The user should enter only letters in each field, with the first letter capitalized
+• Student ID number (a text field)
+o The user should enter a 9 digit number
+• Message (a textarea)
+o The user may enter up to 25 words (note: not characters!)
+• Submit (a button input type, or a submit input type if you can get this to work without
+submitting)
+When the user presses the Submit button, the form is checked…
+FOR VALID FORMS
+If the form is valid (i.e. abides by the rules above), then an easy-to-see message should be
+tastefully displayed at the bottom of the screen in its own div. Nothing else should be displayed
+in this div. While the user is filling out the form, this div should be empty (have no text). This
+message can say, for example: “SUCCESS!”
+FOR INVALID FORMS
+If the form is invalid, the page’s background should change color (this can be accomplished with
+a div that encloses all other content, if you like), and error text should be added to the page
+(previously invisible/not displayed) that details all the current errors. The error text should stand
+out and be colored differently than any other elements on the page. (You may change the class
+attribute of the error text and body/div elements using JavaScript to accomplish this effect,
+where the classes are defined in embedded CSS.)
+NO FORM SUBMISSION!!!
+The form on the page should not actually submit! Failure to do this will result in a pagerefresh
+when the submit button is pressed, and the functionality listed in the prior 2 sections
+(FOR VALID FORMS, FOR INVALID FORMS) will fail to work.
+This is easy to accomplish if you do not give the form a “real” submit button…
+<input type=”submit”>
+but rather just a generic button labeled with the text “submit,” like so…
+<input type=”button” value=”submit”>
+OTHER NOTES
+The stylesheet and JavaScript should be embedded in the <head> section of the HTML
+document.
+The JavaScript code should use the Event Listener model mentioned in class! The only
+line of code that is outside of a function should be…
+window.addEventListener( “load”, nameOfMyInitFunction, false);
+The JavaScript code must use functions where appropriate (i.e. formSubmitted() or
+buttonClicked() for form submission). These functions may be anonymous functions, as we will
+discuss in class. (In other words, they can be defined in-place with no function name in the call
+to addEventListener, or similar.)
+The JavaScript code should have occasional explanatory comments where appropriate (on the
+order of once or twice per function).
+Grade Breakdown:
+10%: Submission instructions followed to the letter (1 html file submitted, named as stated
+above, with no contents except plain-text HTML as well as CSS and JavaScript in the head)
+10%: JavaScript has proper formatting, proper use of functions, and comments as appropriate
+20%: Web page renders properly in Mozilla Firefox 50+
+30%: Web page contains all required content, behaving according to spec
+30%: JavaScript code abides by spec
+Cheating: This project is an individual project. You can discuss this project with other students.
+You can explain what needs to be done and give suggestions on how to do it. You cannot share
+source code. If two projects are submitted which show significant similarity in source code then
+both students will receive an F on the assignment. Note a person who gives his code to another
+student also fails the class (you are facilitating the dishonest actions of another). 
+Source code that is copied from websites without citation will also count as cheating, and the
+same consequences apply.
