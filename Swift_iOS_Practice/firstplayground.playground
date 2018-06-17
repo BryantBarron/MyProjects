@@ -30,8 +30,93 @@ var progressPercentage: Double
 // let creates a constant, can only initialize once
 // set up is the same as with variables
 // encouraged to be used ( compiler even gives a warning )
-// constants must be initialized before being used
+// constants must be initialized before being used, but only once
 
 let somethingDark = "Something light"
 let darkness: String
+
+// most operators work the same as other languages
+// these are specific to swift
+// ?? nil coalescing operator
+// ... closed range operator
+// ..< half-open range operator
+// -> return arrow
+// ! force unwrap
+// these dont work in swift --, ++
+
+let a = 3 //typed as an int
+let b = 4 // typed as an int
+let myResult = a + b // also typed as an int
+type(of: myResult) // built in function to test type
+// swift does not implicit conversion between types ( no coercion )
+var score = 1
+var highScore = 100.0
+highScore = Double(score) // explicit conversion
+
+// some conversions don't make sense
+// conversions can still lose information
+// not all conversions succeed
+
+// swift optionals
+var firstName: String
+var middleName: String? // type of optional string
+var lastName: String
+
+var email: String
+var secondaryEmail: String? // type of optional string
+
+var daysUntilNextTrip: Int? // type of optional int
+// nil is used to fill optional and only important for that
+
+var regularInt: Int
+var optionalInt: Int?
+
+regularInt = 100
+optionalInt = 100
+
+regularInt = regularInt + 5
+
+//optinal binding
+if let unwrappedInt = optionalInt {
+    print(optionalInt)
+} else {
+    //no value
+}
+// must check to see if optional has a value, if it does you can unwrap and use it
+//if optionalInt != nil {
+   // var unwrappedInt = optionalInt!
+    // remember that if you force unwrap a optional that has a nil value it will CRASH
+    // the program ( runtime error )
+//}
+
+// swift collections
+// array: ordered collection of items
+// dictionary: collection of key/value pairs
+// set: unordered collection of items
+// these are all built in
+
+// arrays in swift are zero based
+// arrays are type safe
+// arrays are mutable or immutable ( changable of fixed )
+var musicalModes = ["Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Minor"] //array literal
+// make a constant array of Ints
+let speedlimits = [15,25,35,45,55,70,75,]
+
+let initialMode = musicalModes[0]
+musicalModes[5] = "Aeolian"
+
+// add a new element
+musicalModes.append("Locrian")
+// add again
+musicalModes.append("Locrian")
+// remove an element
+let theRemovedElement = musicalModes.removeLast()
+
+// type annotation of Array of Strings
+var myStringArray: [String] = []
+// must at least create it
+var myIntArray: [Int] = []
+
+
+
 
